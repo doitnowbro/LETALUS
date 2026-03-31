@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LETALUS — Man Is Mission</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --red:#C0152A;
+  --gold:#B8972A;
+  --white:#F0EDE6;
+  --dim:#9A9690;
+  --bg:#0A0A09;
+  --bg2:#111110;
+  --border:#1E1E1C;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;border-bottom:1px solid var(--border);background:rgba(10,10,9,0.92);backdrop-filter:blur(8px);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.12em;color:var(--white);}
+.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;border-bottom:1px solid var(--border);}
+.hero-eyebrow{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:24px;}
+.hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:0.92;letter-spacing:0.02em;color:var(--white);margin-bottom:48px;}
+.hero-headline .accent{color:var(--red);}
+.hero-definition{max-width:560px;border-left:2px solid var(--red);padding-left:24px;margin-bottom:48px;}
+.hero-definition p{font-size:15px;color:var(--dim);line-height:1.8;}
+.hero-definition strong{color:var(--white);font-weight:500;}
+.hero-cta{display:flex;gap:16px;align-items:center;}
+.btn-primary{display:inline-block;padding:14px 32px;background:var(--red);color:var(--white);font-size:12px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.btn-primary:hover{background:#A01020;}
+.btn-ghost{display:inline-block;padding:14px 32px;border:1px solid var(--border);color:var(--dim);font-size:12px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--dim);color:var(--white);}
+.hero-corner{position:absolute;bottom:48px;right:48px;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--border);letter-spacing:0.05em;text-align:right;line-height:2;}
+
+/* INDICTMENT */
+.indictment{padding:100px 48px;border-bottom:1px solid var(--border);}
+.section-label{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:48px;}
+.indictment-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1100px;}
+.indictment-left{padding-right:80px;border-right:1px solid var(--border);}
+.indictment-right{padding-left:80px;}
+.indictment-stat{margin-bottom:56px;}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:var(--red);margin-bottom:8px;}
+.stat-label{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:8px;}
+.stat-desc{font-size:14px;color:var(--dim);max-width:380px;}
+.indictment-quote{font-size:20px;line-height:1.6;color:var(--white);font-weight:300;margin-bottom:32px;}
+.indictment-quote em{color:var(--gold);font-style:normal;}
+.indictment-source{font-size:12px;color:var(--dim);letter-spacing:0.05em;}
+
+/* THREE FAILURES */
+.failures{padding:100px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.failures-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:56px;}
+.failure-card{background:var(--bg2);padding:48px 40px;}
+.failure-number{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--red);letter-spacing:0.1em;margin-bottom:20px;}
+.failure-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.05em;color:var(--white);margin-bottom:16px;line-height:1.1;}
+.failure-desc{font-size:14px;color:var(--dim);line-height:1.8;}
+
+/* DEFINITION */
+.definition{padding:100px 48px;border-bottom:1px solid var(--border);}
+.definition-inner{max-width:800px;}
+.definition-formula{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,64px);line-height:1.1;color:var(--white);margin-bottom:48px;}
+.definition-formula .lambda{color:var(--gold);}
+.definition-formula .slash{color:var(--red);}
+.def-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:56px;}
+.def-domain{background:var(--bg);padding:40px 32px;}
+.def-domain-letter{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--red);line-height:1;margin-bottom:8px;}
+.def-domain-name{font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);margin-bottom:12px;}
+.def-domain-desc{font-size:13px;color:var(--dim);line-height:1.8;}
+.def-domain-weight{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--gold);margin-top:16px;}
+
+/* PRODUCTS */
+.products{padding:100px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:56px;}
+.product-card{background:var(--bg2);padding:56px 48px;position:relative;}
+.product-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px;}
+.product-name{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:0.05em;color:var(--white);margin-bottom:16px;}
+.product-desc{font-size:14px;color:var(--dim);line-height:1.9;margin-bottom:32px;}
+.product-specs{list-style:none;}
+.product-specs li{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dim);padding:8px 0;border-bottom:1px solid var(--border);letter-spacing:0.05em;}
+.product-specs li:last-child{border-bottom:none;}
+.product-specs li span{color:var(--white);}
+.product-card.full{grid-column:1/-1;}
+
+/* MDPP */
+.mdpp{padding:100px 48px;border-bottom:1px solid var(--border);}
+.mdpp-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:56px;}
+.mdpp-step{background:var(--bg);padding:40px 32px;}
+.mdpp-step-number{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--red);margin-bottom:16px;}
+.mdpp-step-name{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:12px;}
+.mdpp-step-desc{font-size:13px;color:var(--dim);line-height:1.8;}
+
+/* VANTAGE */
+.vantage{padding:100px 48px;background:var(--bg2);border-bottom:1px solid var(--border);}
+.vantage-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.vantage-diagram{background:var(--bg);border:1px solid var(--border);padding:40px;}
+.vantage-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);}
+.vantage-row:last-child{border-bottom:none;}
+.vantage-box{font-family:'Share Tech Mono',monospace;font-size:11px;padding:8px 16px;letter-spacing:0.08em;}
+.vantage-box.lethalos{border:1px solid var(--red);color:var(--red);}
+.vantage-box.palantir{border:1px solid var(--gold);color:var(--gold);}
+.vantage-box.dim{border:1px solid var(--border);color:var(--dim);}
+.vantage-arrow{color:var(--dim);font-size:18px;}
+.vantage-label{font-size:12px;color:var(--dim);}
+
+/* ABOUT */
+.about{padding:100px 48px;border-bottom:1px solid var(--border);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:56px;}
+.about-bio p{font-size:15px;color:var(--dim);line-height:1.9;margin-bottom:20px;}
+.about-bio strong{color:var(--white);font-weight:500;}
+.credentials{list-style:none;}
+.credentials li{font-size:13px;color:var(--dim);padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:16px;align-items:flex-start;}
+.credentials li:last-child{border-bottom:none;}
+.cred-dot{width:4px;height:4px;background:var(--red);border-radius:50%;margin-top:8px;flex-shrink:0;}
+.entity-block{margin-top:48px;padding:32px;border:1px solid var(--border);}
+.entity-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+.entity-name{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);margin-bottom:4px;}
+.entity-detail{font-size:13px;color:var(--dim);}
+
+/* CONTACT */
+.contact{padding:100px 48px;}
+.contact-inner{max-width:600px;}
+.contact-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:0.95;color:var(--white);margin-bottom:32px;}
+.contact-headline span{color:var(--red);}
+.contact-desc{font-size:15px;color:var(--dim);margin-bottom:48px;line-height:1.8;}
+.contact-email{font-family:'Share Tech Mono',monospace;font-size:18px;color:var(--gold);text-decoration:none;display:block;margin-bottom:48px;}
+.contact-email:hover{color:var(--white);}
+
+/* FOOTER */
+footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.12em;color:var(--dim);}
+.footer-copy{font-size:11px;color:var(--border);letter-spacing:0.05em;}
+
+/* UTIL */
+.section-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:1;color:var(--white);margin-bottom:16px;}
+.section-sub{font-size:14px;color:var(--dim);max-width:560px;}
+.gold{color:var(--gold);}
+.red{color:var(--red);}
+
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 24px 60px;}
+  .indictment,.failures,.definition,.products,.mdpp,.vantage,.about,.contact{padding:64px 24px;}
+  .indictment-grid,.products-grid,.vantage-inner,.about-grid{grid-template-columns:1fr;}
+  .indictment-left{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:48px;margin-bottom:48px;}
+  .indictment-right{padding-left:0;}
+  .failures-grid{grid-template-columns:1fr;}
+  .def-breakdown{grid-template-columns:1fr;}
+  .mdpp-cycle{grid-template-columns:1fr 1fr;}
+  .product-card.full{grid-column:1;}
+  footer{flex-direction:column;gap:12px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span>LETAL</span>US</div>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">S-RAS, LLC &nbsp;|&nbsp; SDVOSB &nbsp;|&nbsp; Human Lethality Development</div>
+  <h1 class="hero-headline">MAN IS<br><span class="accent">MISSION.</span></h1>
+  <div class="hero-definition">
+    <p><strong>Human lethality is the ability to incapacitate a target within the imposed constraints.</strong><br>
+    The Department of War has never formally defined it. Without a definition, it cannot be measured. Without measurement, it cannot be developed. As it stands today, the DoW's best statement on human lethality is aspirational and assumptive. <strong>LETALUS delivers measured capability.</strong></p>
+  </div>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Contact Us</a>
+    <a href="#products" class="btn-ghost">Our Products</a>
+  </div>
+  <div class="hero-corner">
+    S-RAS, LLC DBA LETALUS<br>
+    SDVOSB + MBE<br>
+    EIN 93-2396718<br>
+    NAICS 541715
+  </div>
+</section>
+
+<!-- INDICTMENT -->
+<section class="indictment" id="problem">
+  <div class="section-label">The Problem</div>
+  <div class="indictment-grid">
+    <div class="indictment-left">
+      <div class="indictment-stat">
+        <div class="stat-number">300</div>
+        <div class="stat-label">Years Unchanged</div>
+        <div class="stat-desc">Paper target assessment has been the primary weapons qualification methodology for three centuries. The instrument has not changed. The standard has not been defined.</div>
+      </div>
+      <div class="indictment-stat">
+        <div class="stat-number">1/8</div>
+        <div class="stat-label">Kill Chain Functions Developed</div>
+        <div class="stat-desc">TC 3-20.31-040 defines eight sequential kill chain functions. Standard weapons qualification develops one: Engage. Under conditions that do not replicate combat.</div>
+      </div>
+      <div class="indictment-stat">
+        <div class="stat-number">155K+</div>
+        <div class="stat-label">Close Combat Fighters</div>
+        <div class="stat-desc">Active Army close combat MOSs certified annually against a standard that cannot distinguish a fighter who qualifies from a fighter who can incapacitate a target within the imposed constraints of a close combat engagement.</div>
+      </div>
+    </div>
+    <div class="indictment-right">
+      <div class="indictment-quote">
+        "The Army's formal task proficiency rating system applies only to collective tasks. Individual weapons qualification runs on a separate binary system: qualified or not, valid twelve months. The institution then treats achievement of that floor as evidence of <em>lethality development.</em>"
+      </div>
+      <div class="indictment-source">— Garcia, J.A. Lethality. Resolved. S-RAS LLC, March 2026</div>
+      <br><br>
+      <div class="indictment-quote" style="font-size:16px;">
+        "Qualification scores were a poor predictor of static marksmanship accuracy and lethality performance — the precise attributes that determine whether a fighter incapacitates a target."
+      </div>
+      <div class="indictment-source">— Villa et al. AD1088722, DEVCOM Soldier Center, 2020. N=46 active duty infantry soldiers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE FAILURES -->
+<section class="failures">
+  <div class="section-label">Three Structural Failures</div>
+  <div class="section-headline">The Institution Has Been<br>Developing the Wrong Organ.</div>
+  <div class="failures-grid">
+    <div class="failure-card">
+      <div class="failure-number">FAILURE 01</div>
+      <div class="failure-title">Wrong Neural System</div>
+      <div class="failure-desc">Weapons qualification assesses the prefrontal cortex under static conditions. Close combat requires basal ganglia-resident automaticity. The stress response correctly suppresses prefrontal function in contact. The institution has been certifying the organ the body shuts down when it matters.</div>
+    </div>
+    <div class="failure-card">
+      <div class="failure-number">FAILURE 02</div>
+      <div class="failure-title">Wrong Target Geometry</div>
+      <div class="failure-desc">Qualification courses of fire present the engagement problem already solved. Known target. Known range. Confirmed threat. No observation. No detection. No identification. No engagement decision under cognitive load. The Soldier executes the shot. Seven of eight kill chain functions are not assessed.</div>
+    </div>
+    <div class="failure-card">
+      <div class="failure-number">FAILURE 03</div>
+      <div class="failure-title">Wrong Clock</div>
+      <div class="failure-desc">Binary qualification output valid twelve months is the only data the institution collects on the individual operator's lethal capacity. No trajectory. No degradation curve. No prescription. Whether the fighter is more or less lethal than six months ago is never measured. The combat power model assumes maximum value at all times.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEFINITION -->
+<section class="definition">
+  <div class="section-label">The Definition</div>
+  <div class="definition-inner">
+    <div class="definition-formula">
+      <span class="lambda">Λ</span> = <span class="slash">CLI</span> / SVI
+    </div>
+    <p style="font-size:15px;color:var(--dim);max-width:640px;line-height:1.9;">
+      Lethality is the capacity to produce incompatibility with continuance. At the human level: <strong style="color:var(--white);">the ability to incapacitate a target within the imposed constraints.</strong> This definition forces exactly three domains — not two, not four. Three. This is not a modeling choice. It is a logical consequence of the definition.
+    </p>
+    <div class="def-breakdown">
+      <div class="def-domain">
+        <div class="def-domain-letter">C</div>
+        <div class="def-domain-name">Cognition</div>
+        <div class="def-domain-desc">The fighter acquired the right target — automatically, without deliberation, below the threshold of conscious decision-making. Measured by the Decision Accuracy Score (DAS). Basal ganglia-resident at competency.</div>
+        <div class="def-domain-weight">wC = 0.35 &nbsp;|&nbsp; DAS</div>
+      </div>
+      <div class="def-domain">
+        <div class="def-domain-letter">P</div>
+        <div class="def-domain-name">Precision</div>
+        <div class="def-domain-desc">The fighter delivered an incapacitating hit. Precision is the expression of Cognition — the motor program executing accurately against the correctly identified object. Measured by Lethal Zone Hit Percentage (LZHP).</div>
+        <div class="def-domain-weight">wP = 0.35 &nbsp;|&nbsp; LZHP</div>
+      </div>
+      <div class="def-domain">
+        <div class="def-domain-letter">S</div>
+        <div class="def-domain-name">Speed</div>
+        <div class="def-domain-desc">The fighter acted within the imposed constraints. Speed is not a trained capacity. It is the emergent output of Cognition and Precision reaching unconscious competency simultaneously. Measured by Normalized Speed Score (NSS).</div>
+        <div class="def-domain-weight">wS = 0.30 &nbsp;|&nbsp; NSS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-label">Products</div>
+  <div class="section-headline">The Architecture.</div>
+  <div class="section-sub">Four integrated product lines. One mission: deliver the measured human lethality capability doctrine demands and no DoW development strategy currently provides.</div>
+
+  <div class="products-grid">
+    <!-- LethalOS -->
+    <div class="product-card" style="grid-column:1/-1;">
+      <div class="product-tag">Core Engine</div>
+      <div class="product-name">LethalOS</div>
+      <div class="product-desc">The decision intelligence engine. Not a scoring app. LethalOS implements 32 formulas across 8 architecture boxes, executes the full Measure-Diagnose-Predict-Prescribe (MDPP) cycle, and feeds raw performance data and MDPP output directly to Palantir VANTAGE. It ingests soldier administrative and performance data to produce a comprehensive individual-level human lethality development plan. It is the intelligence layer every prior ONR program left open.</div>
+      <ul class="product-specs">
+        <li>32 formulas &nbsp;|&nbsp; 8 architecture boxes &nbsp;|&nbsp; <span>Full MDPP cycle</span></li>
+        <li>CLI — Composite Lethality Index &nbsp;|&nbsp; <span>Geometric mean · wC=0.35 · wP=0.35 · wS=0.30</span></li>
+        <li>CFI — Combat Fitness Index &nbsp;|&nbsp; <span>WCS · RRS · STI</span></li>
+        <li>SVI — Survivability Index &nbsp;|&nbsp; <span>ZeroKey RTLS position data</span></li>
+        <li>Bidirectional Palantir VANTAGE integration &nbsp;|&nbsp; <span>MDPP output + raw CLI data pipeline</span></li>
+        <li>Four-quadrant diagnostic &nbsp;|&nbsp; <span>FOUNDATION · MISDIRECTED · FRAGILE · COMBAT READY</span></li>
+        <li>Speed Emergence prescription rule &nbsp;|&nbsp; <span>First algorithm prohibiting harmful speed intervention</span></li>
+      </ul>
+    </div>
+
+    <!-- LUDUS.III -->
+    <div class="product-card">
+      <div class="product-tag">B2G Military Platform</div>
+      <div class="product-name">LUDUS.III</div>
+      <div class="product-desc">The military human lethality development platform. Delivers the LethalOS MDPP cycle to commanders from company to division level. Serves DoW, National Guard, and law enforcement. Produces the Three Indices — CLI, CFI, SVI — at the individual and formation level. "Score" is absent from every output. These are measured indices of developed capacity.</div>
+      <ul class="product-specs">
+        <li>Command level &nbsp;|&nbsp; <span>Company through Division</span></li>
+        <li>Serves &nbsp;|&nbsp; <span>DoW · National Guard · Law Enforcement</span></li>
+        <li>Output &nbsp;|&nbsp; <span>CLI · CFI · SVI — The Three Indices</span></li>
+        <li>Integrates &nbsp;|&nbsp; <span>Army VANTAGE · USMC MAVEN</span></li>
+      </ul>
+    </div>
+
+    <!-- TANGO -->
+    <div class="product-card">
+      <div class="product-tag">Hardware Division</div>
+      <div class="product-name">TANGO Instruments</div>
+      <div class="product-desc">Two instrumented target systems sharing identical electronics, firmware, and LethalOS integration. Purpose-built for the close-quarters live-fire measurement environment LethalOS requires.</div>
+      <ul class="product-specs">
+        <li>TANGO 03.11.1 &nbsp;|&nbsp; <span>CO2/non-lethal · 1–5J · max 40ft indoor</span></li>
+        <li>TANGO 03.11.2 &nbsp;|&nbsp; <span>5.56mm NATO frangible · 1/4" AR500 steel · max 40ft</span></li>
+        <li>Sensor suite &nbsp;|&nbsp; <span>ZeroKey RTLS · MantisX 10 Elite · LifeLens WARP</span></li>
+        <li>LifeLens WARP &nbsp;|&nbsp; <span>25-sensor biometric patch · JPEO-CBRND program of record</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MDPP -->
+<section class="mdpp">
+  <div class="section-label">The Cycle</div>
+  <div class="section-headline">Measure. Diagnose.<br>Predict. Prescribe.</div>
+  <div class="section-sub">Every prior DoW human performance program stops at Measure. LethalOS closes the loop.</div>
+  <div class="mdpp-cycle">
+    <div class="mdpp-step">
+      <div class="mdpp-step-number">01 &mdash; MEASURE</div>
+      <div class="mdpp-step-name">Measure</div>
+      <div class="mdpp-step-desc">Live-fire close-quarters instrumented session. 32 formulas executing in real time. CLI, CFI, SVI produced at individual and formation level. Where every prior program stops.</div>
+    </div>
+    <div class="mdpp-step">
+      <div class="mdpp-step-number">02 &mdash; DIAGNOSE</div>
+      <div class="mdpp-step-name">Diagnose</div>
+      <div class="mdpp-step-desc">Domain deficit signature analysis. Four-quadrant diagnostic placement. The fighter who scores low on DAS is not slow — he is engaging the wrong target sequence. The distinction determines the intervention.</div>
+    </div>
+    <div class="mdpp-step">
+      <div class="mdpp-step-number">03 &mdash; PREDICT</div>
+      <div class="mdpp-step-name">Predict</div>
+      <div class="mdpp-step-desc">CLI trajectory modeling. Performance degradation curves. Fatigue mapping. The commander knows where each fighter will be in 30, 60, 90 days — before the next engagement.</div>
+    </div>
+    <div class="mdpp-step">
+      <div class="mdpp-step-number">04 &mdash; PRESCRIBE</div>
+      <div class="mdpp-step-name">Prescribe</div>
+      <div class="mdpp-step-desc">Individual-level intervention directives. Not a leaderboard. The Speed Emergence rule prohibits speed-focused work for fighters whose Cognition or Precision has not reached automaticity — because prescribing speed to an underdeveloped domain embeds error at pace.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VANTAGE INTEGRATION -->
+<section class="vantage">
+  <div class="section-label">Integration</div>
+  <div class="vantage-inner">
+    <div>
+      <div class="section-headline" style="font-size:clamp(36px,4vw,56px);">Palantir VANTAGE<br><span class="gold">Integration.</span></div>
+      <p style="font-size:15px;color:var(--dim);line-height:1.9;margin-top:24px;">LethalOS is built to feed Army VANTAGE and USMC MAVEN. Bidirectional data pipeline: LethalOS delivers MDPP output and raw CLI performance data into VANTAGE. VANTAGE delivers soldier administrative and readiness data into LethalOS. The result is the first comprehensive, data-driven individual human lethality development plan the DoW has ever produced — running on infrastructure commanders already own and trust.</p>
+      <p style="font-size:14px;color:var(--dim);margin-top:24px;line-height:1.9;">This is not a parallel system. It is the measurement and intelligence layer completing the architecture VANTAGE was built to command.</p>
+    </div>
+    <div class="vantage-diagram">
+      <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:24px;">Data Architecture</div>
+      <div class="vantage-row">
+        <div class="vantage-box dim">SOLDIER ADMIN DATA</div>
+        <div class="vantage-arrow">→</div>
+        <div class="vantage-box lethalos">LETHALOS</div>
+      </div>
+      <div class="vantage-row">
+        <div class="vantage-box dim">LIVE-FIRE SESSION</div>
+        <div class="vantage-arrow">→</div>
+        <div class="vantage-box lethalos">LETHALOS</div>
+      </div>
+      <div class="vantage-row">
+        <div class="vantage-box lethalos">CLI · CFI · SVI</div>
+        <div class="vantage-arrow">→</div>
+        <div class="vantage-box palantir">VANTAGE</div>
+      </div>
+      <div class="vantage-row">
+        <div class="vantage-box lethalos">MDPP OUTPUT</div>
+        <div class="vantage-arrow">→</div>
+        <div class="vantage-box palantir">VANTAGE</div>
+      </div>
+      <div class="vantage-row">
+        <div class="vantage-box palantir">COMMANDER VIEW</div>
+        <div class="vantage-arrow">→</div>
+        <div class="vantage-box dim">INTERVENTION</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-bio">
+      <p><strong>Jose A. Garcia</strong> is the Founder and CEO of S-RAS, LLC. He is a retired Sergeant First Class, U.S. Army, with 24 years of service spanning active duty infantry, the Army Reserve, and the California Army National Guard. He is a combat veteran of Desert Storm and Operation Iraqi Freedom.</p>
+      <p>Garcia is a <strong>U.S. Army Distinguished Shooter</strong> and seven-time national marksmanship champion. He has served as Marksmanship Director for the California Army National Guard since 2009 and as Civilian Marksmanship Director since 2015. He currently serves as G3 Fund Manager for the California Military Department, managing Master Cooperative Agreement Appendix 1007 across three training installations.</p>
+      <p>He is 100% Permanently and Totally disabled, VA-rated. The construct of human lethality as a measurable, developable capacity is tacit knowledge — produced from inside the phenomenon by a practitioner who has delivered it, developed it in others, and directed its measurement at the institutional level for fifteen years. <em style="color:var(--dim);">Nobody cares about credentials. They care about content.</em></p>
+      <ul class="credentials">
+        <li><span class="cred-dot"></span>U.S. Army Distinguished Shooter</li>
+        <li><span class="cred-dot"></span>Seven-Time National Marksmanship Champion</li>
+        <li><span class="cred-dot"></span>Marksmanship Director, California Army National Guard (2009–present)</li>
+        <li><span class="cred-dot"></span>Civilian Marksmanship Director (2015–present)</li>
+        <li><span class="cred-dot"></span>Infantry Combat Veteran — Desert Storm · Operation Iraqi Freedom</li>
+        <li><span class="cred-dot"></span>AWG Asymmetric Warfare Adaptive Leader Program Graduate</li>
+        <li><span class="cred-dot"></span>100% P&T Disabled Veteran, SDVOSB Eligible</li>
+      </ul>
+    </div>
+    <div>
+      <div class="entity-block">
+        <div class="entity-label">Legal Entity</div>
+        <div class="entity-name">S-RAS, LLC</div>
+        <div class="entity-detail">Wyoming LLC operating in California<br>EIN 93-2396718 &nbsp;|&nbsp; NAICS 541715</div>
+      </div>
+      <div class="entity-block" style="margin-top:1px;">
+        <div class="entity-label">Certifications</div>
+        <div class="entity-name">SDVOSB + MBE</div>
+        <div class="entity-detail">Service-Disabled Veteran-Owned Small Business<br>Minority Business Enterprise<br>Sole-source eligible up to $4.5M</div>
+      </div>
+      <div class="entity-block" style="margin-top:1px;">
+        <div class="entity-label">Company Brand</div>
+        <div class="entity-name">LETALUS</div>
+        <div class="entity-detail">DBA under S-RAS, LLC<br>All legal documents and contracts: S-RAS, LLC</div>
+      </div>
+      <div class="entity-block" style="margin-top:1px;">
+        <div class="entity-label">TRL Status</div>
+        <div class="entity-name">TRL 4 &nbsp;·&nbsp; KRL 6</div>
+        <div class="entity-detail">LethalOS MVP: working Python engine · 32 formulas<br>TANGO 03.11.1 + 03.11.2: prototypes complete and testable<br>Conceptual foundation: peer-reviewed preprint published</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Contact</div>
+    <div class="contact-headline">Build the<br><span>Room.</span></div>
+    <div class="contact-desc">S-RAS, LLC is pursuing government contract funding through ONR BAA N0001425SB001, USSOCOM BAA HT9425-23-S-SOC1, and the DEVCOM Soldier Center BAA W911QY-25-R-0023. If you are a program officer, prime contractor, or institutional partner working in the human lethality or human performance space, we want to hear from you.</div>
+    <a href="/cdn-cgi/l/email-protection#2e496e485e5d5c4b4f4a57004949" class="contact-email"><span class="__cf_email__" data-cfemail="94f3d4f2e4e7e6f1f5f0edbaf3f3">[email&#160;protected]</span></a>
+    <div style="font-size:12px;color:var(--dim);letter-spacing:0.05em;">
+      S-RAS, LLC DBA LETALUS<br>
+      Aliso Viejo, California<br>
+      SDVOSB &nbsp;|&nbsp; MBE &nbsp;|&nbsp; EIN 93-2396718
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span style="color:var(--red)">LETAL</span>US &nbsp;/&nbsp; S-RAS, LLC</div>
+  <div c
