@@ -595,7 +595,7 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     <div class="section-label reveal">Contact</div>
     <div class="contact-headline reveal">We Own<br><span>The Fight.</span></div>
     <div class="contact-desc reveal">S-RAS, LLC is pursuing government contract funding through ONR BAA N0001425SB001, USSOCOM BAA HT9425-23-S-SOC1, and the DEVCOM Soldier Center BAA W911QY-25-R-0023. Program officers, prime contractors, and institutional partners working in the close combat lethality space — contact us.</div>
-    <a href="/cdn-cgi/l/email-protection#32585d4157725e5746535e47411c5b5d" class="contact-email reveal"><span class="__cf_email__" data-cfemail="fe94918d9bbe929b8a9f928b8dd09791">[email&#160;protected]</span></a>
+    <a href="mailto:jose@letalus.io" class="contact-email reveal">jose@letalus.io</a>
     <div class="contact-meta reveal">
       S-RAS, LLC DBA LETALUS<br>
       Orange County, California · United States<br>
@@ -610,7 +610,7 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="footer-copy">WE OWN THE FIGHT.™ &nbsp;|&nbsp; © 2026 S-RAS, LLC. ALL RIGHTS RESERVED.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Nav scroll state
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -680,4 +680,14 @@ function animateCounter(el) {
 
 const counters = document.querySelectorAll('.counter');
 const counterObserver = new IntersectionObserver((entries) => {
-  entr
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.5});
+counters.forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
