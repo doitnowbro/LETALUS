@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LETALUS — Man Is Mission</title>
+<title>LETALUS · Human Lethality Development</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -32,6 +32,16 @@ nav.scrolled{background:rgba(10,10,9,0.94);backdrop-filter:blur(12px);border-bot
 .nav-links{display:flex;gap:32px;list-style:none;}
 .nav-links a{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:var(--white);}
+
+/* CREDENTIAL CHIRON */
+.chiron{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,9,0.96);backdrop-filter:blur(8px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;height:34px;display:flex;align-items:center;}
+.chiron-track{display:inline-flex;white-space:nowrap;animation:chiron-scroll 38s linear infinite;will-change:transform;}
+.chiron:hover .chiron-track{animation-play-state:paused;}
+.chiron-item{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);padding:0 22px;display:inline-flex;align-items:center;}
+.chiron-item.hot{color:var(--red);}
+.chiron-item.gold{color:var(--gold);}
+.chiron-sep{color:var(--border-hi);font-size:11px;}
+@keyframes chiron-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* VIDEO HERO */
 .hero{position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
@@ -100,7 +110,7 @@ nav.scrolled{background:rgba(10,10,9,0.94);backdrop-filter:blur(12px);border-bot
 .papers-link{font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gold);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s;}
 .papers-link:hover{color:var(--white);}
 
-/* VIDEO BREAK — mid-page cinematic panel */
+/* VIDEO BREAK */
 .video-break{position:relative;height:520px;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .video-break video{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
 .video-break-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,9,0.92) 0%,rgba(10,10,9,0.65) 50%,rgba(10,10,9,0.3) 100%);}
@@ -208,6 +218,8 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 @media(max-width:900px){
   nav{padding:16px 24px;}
   .nav-links{display:none;}
+  .chiron{top:54px;height:30px;}
+  .chiron-item{font-size:11px;letter-spacing:0.12em;padding:0 16px;}
   .hero-content{padding:0 24px 56px;}
   .hero-corner,.hero-telemetry{display:none;}
   .indictment,.failures,.definition,.products,.amdpp,.vantage,.about,.contact{padding:64px 24px;}
@@ -239,6 +251,20 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   </ul>
 </nav>
 
+<!-- CREDENTIAL CHIRON -->
+<div class="chiron">
+  <div class="chiron-track" id="chiron-track">
+    <span class="chiron-item hot" style="font-weight:700;">SDVOSB CERTIFIED</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">DEFENSE R&amp;D</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">WARFIGHTER PERFORMANCE</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">UEI LA2LYU7XDKU5</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">CAGE 1Z2Y2</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">NAICS 541715</span><span class="chiron-sep">·</span>
+    <span class="chiron-item">SAM.GOV ACTIVE</span><span class="chiron-sep">·</span>
+    <span class="chiron-item gold">U.S. PAT. APP. 64/026,797</span><span class="chiron-sep">·</span>
+  </div>
+</div>
+
 <!-- VIDEO HERO -->
 <section class="hero">
   <div class="hero-video-wrap">
@@ -257,16 +283,16 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 
   <div class="hero-corner">
     S-RAS, LLC DBA LETALUS<br>
-    SDVOSB CERTIFICATION IN PROGRESS<br>
+    SDVOSB CERTIFIED<br>
     U.S. Pat. App. 64/026,797
   </div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow" id="hero-eyebrow">For Close Combat &nbsp;—&nbsp; Man Is Mission</div>
+    <div class="hero-eyebrow" id="hero-eyebrow">For Close Combat</div>
     <h1 class="hero-headline" id="hero-headline">Human<br>Lethality.</h1>
-    <div class="hero-subhead" id="hero-subhead">We defined it. Then invented<br>and patented its measurement.</div>
+    <div class="hero-subhead" id="hero-subhead">We define it. We measure it. We build it.</div>
     <div class="hero-statement" id="hero-def">
-      <p>Lanchester measured forces. Dupuy measured weapons. Neither measured the man at the end of the kill chain. Every autonomous system in the DoW arsenal terminates at an uninstrumented human node. <strong>LETALUS instruments that node.</strong></p>
+      <p>The DoW has never defined human lethality. What it cannot define, it cannot measure. What it cannot measure, it cannot build. For the close combat fighter, lethality is presumed and left to chance. <strong>LETALUS ends the guessing.</strong></p>
     </div>
     <div class="hero-cta" id="hero-cta">
       <a href="#contact" class="btn-primary">Contact Us</a>
@@ -283,7 +309,7 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   </div>
   <div class="stat-cell reveal reveal-delay-2">
     <div class="stat-num">540</div>
-    <div class="stat-unit">Rounds Per Year · U.S. Army Infantry Standard<br>LETALUS delivers 25× that volume — scored, prescribed</div>
+    <div class="stat-unit">Rounds A Year Is The Standard<br>3 hours a week in LUDUS.III delivers 25× that. The time already exists in the training calendar.</div>
   </div>
   <div class="stat-cell reveal reveal-delay-3">
     <div class="stat-num"><span class="counter" data-target="2" data-suffix=" Days">0</span></div>
@@ -310,16 +336,16 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     <div class="problem-item reveal reveal-delay-3">
       <div class="problem-number">03</div>
       <div class="problem-title">The Reformation Skips the Human.</div>
-      <div class="problem-desc">The DoW has invested significantly in lethality measurement. JMAP. S.P.E.A.R. Conflict Kinetics. None score the Cognition domain. None close the AMDPP cycle. None feed the commander a prescription. The investment produced flawed sport measurement without human lethality development.</div>
+      <div class="problem-desc">The DoW has invested significantly in lethality measurement. JMAP. S.P.E.A.R. Conflict Kinetics. None score the Recognition domain. None close the AMDPP cycle. None feed the commander a prescription. The investment produced flawed sport measurement without human lethality development.</div>
     </div>
   </div>
   <div class="papers-ref reveal">
-    <span class="papers-label">The intellectual foundation is published and peer-reviewed.</span>
-    <a href="#" class="papers-link">Read the papers →</a>
+    <span class="papers-label">The intellectual foundation is published.</span>
+    <a href="https://ssrn.com/abstract=6443920" target="_blank" rel="noopener" class="papers-link">Read the paper →</a>
   </div>
 </section>
 
-<!-- VIDEO BREAK 1 — The Institution -->
+<!-- VIDEO BREAK 1 -->
 <div class="video-break">
   <video id="vid-breach" autoplay muted loop playsinline>
     <source src="./hero.mp4" type="video/mp4">
@@ -328,8 +354,8 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="video-break-content reveal">
     <div class="video-break-label">The Structural Failure</div>
     <div class="video-break-statement">
-      The institution certifies function.<br>
-      <span class="dim-line">It never measures human lethality.</span>
+      The institution certifies the qualification.<br>
+      <span class="dim-line">It has never measured lethality.</span>
     </div>
     <div class="video-break-sub">Zero domain diagnostic data. Zero prescriptive output. Zero trajectory. The DoW built measurement infrastructure for linguists, aviators, and nuclear operators. It built none for the close combat fighter.</div>
   </div>
@@ -358,21 +384,35 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   </div>
 </section>
 
-<!-- VIDEO BREAK 2 — Behold the Man -->
+<!-- VIDEO BREAK 2 -->
 <div class="video-break" style="height:580px;">
   <video id="vid-treeline" autoplay muted loop playsinline>
     <source src="./hero.mp4" type="video/mp4">
   </video>
   <div class="video-break-overlay" style="background:linear-gradient(to right,rgba(10,10,9,0.96) 0%,rgba(10,10,9,0.7) 55%,rgba(10,10,9,0.25) 100%);"></div>
   <div class="video-break-content reveal">
-    <div class="video-break-label">Man Is Mission</div>
+    <div class="video-break-label">The Uninstrumented Node</div>
     <div class="video-break-statement" style="font-size:clamp(52px,7vw,100px);">
-      Behold<br>
-      <span class="dim-line">the man.</span>
+      The Last Node.<br>
+      <span class="dim-line">The human warfighter.</span>
     </div>
-    <div class="video-break-sub" style="max-width:480px;">Anduril builds the platforms. Palantir connects the networks. Shield AI flies the machines. Nobody develops him. He is the only node in the kill chain without a measurement framework. His lethality was assumed. Now it is measured, developed, delivered.</div>
+    <div class="video-break-sub" style="max-width:520px;">Anduril builds the platforms. Palantir connects the networks. Shield AI flies the machines. Every machine node is measured, ranged, and logged. The final node in every kill chain is our human, the only one unmeasured. Human lethality is leader inference. DRRS is leader assertion. LETALUS makes it fact.</div>
   </div>
 </div>
+
+<!-- WE BUILD FIGHTERS -->
+<section class="definition" style="border-bottom:1px solid var(--border);">
+  <div class="section-label reveal">What We Do</div>
+  <div class="definition-inner">
+    <div class="section-headline reveal" style="margin-bottom:32px;">We Build <span class="red">Fighters.</span></div>
+    <p class="reveal" style="font-size:18px;color:var(--white);max-width:680px;line-height:1.7;font-weight:300;">
+      Training is rote foundation. Introductory tasks. Training licenses capacity. <strong style="color:var(--white);font-weight:500;">Practical application is the engine that develops capability.</strong>
+    </p>
+    <p class="reveal reveal-delay-1" style="font-size:16px;color:var(--dim);max-width:680px;line-height:1.85;margin-top:24px;">
+      We develop the capability of human lethality, forged through practical application until recognition and precision run without deliberation. We measure the fighter, diagnose what to develop, prescribe the application, and drive the progression as capability compounds. The NCO trains. <strong style="color:var(--white);font-weight:500;">We are human lethality developers.</strong>
+    </p>
+  </div>
+</section>
 
 <!-- DEFINITION -->
 <section class="definition" id="definition">
@@ -386,22 +426,22 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     </p>
     <div class="def-breakdown">
       <div class="def-domain reveal reveal-delay-1">
-        <div class="def-domain-letter">C</div>
-        <div class="def-domain-name">Cognition</div>
-        <div class="def-domain-desc">The fighter acquired the right target — automatically, without deliberation, below the threshold of conscious decision-making. Target discrimination, engagement sequencing, no-shoot avoidance, and fratricide prevention are independently scored as a weighted construct.</div>
-        <div class="def-domain-weight">DAS · GAL · GTL · NRI · TBR</div>
+        <div class="def-domain-letter">R</div>
+        <div class="def-domain-name">Recognition</div>
+        <div class="def-domain-desc">The fighter resolved the target automatically through basal-ganglia-resident pattern recognition, not conscious deliberation. No decision executes at combat tempo. The classifier resolves each contact to foe, protected person, or target. Foe engagement and protected-person inhibition are independently scored as a non-compensatory construct.</div>
+        <div class="def-domain-weight">CRI · GAL · GTL · NRI</div>
       </div>
       <div class="def-domain reveal reveal-delay-2">
         <div class="def-domain-letter">P</div>
         <div class="def-domain-name">Precision</div>
-        <div class="def-domain-desc">The fighter delivered an incapacitating hit. Precision is the expression of Cognition — the motor program executing accurately against the correctly identified object. Scored by anatomical zone, weighted by incapacitation probability, adjusted by engagement distance.</div>
-        <div class="def-domain-weight">LZHP · MPS · TCI · NQI</div>
+        <div class="def-domain-desc">The fighter delivered an incapacitating hit. Precision is the expression of Recognition. The motor program executes accurately against the correctly identified object. Scored by anatomical zone, weighted by incapacitation probability, adjusted by engagement distance.</div>
+        <div class="def-domain-weight">LZHP · NQI · MPS · TCI</div>
       </div>
       <div class="def-domain reveal reveal-delay-3">
         <div class="def-domain-letter">S</div>
         <div class="def-domain-name">Speed</div>
-        <div class="def-domain-desc">The fighter acted within the imposed constraints. Speed is not a trained capacity. It is the emergent output of Cognition and Precision reaching unconscious competency simultaneously.</div>
-        <div class="def-domain-weight">NSS · T-FST</div>
+        <div class="def-domain-desc">The fighter acted within the imposed constraints. Speed is not a trained capacity. It is the emergent output of Recognition and Precision reaching unconscious competency simultaneously.</div>
+        <div class="def-domain-weight">NSS · T-FST · PST</div>
       </div>
     </div>
   </div>
@@ -411,32 +451,30 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 <section class="products" id="products">
   <div class="section-label reveal">Products</div>
   <div class="section-headline reveal">The Architecture.</div>
-  <div class="section-sub reveal">Three integrated products. One patented engine. One mission: deliver human lethality as a measurable, developable, commander-actionable capacity.</div>
+  <div class="section-sub reveal">Three integrated products. One patented engine. One mission: deliver human lethality as a measurable, developable, commander-actionable capability.</div>
 
   <div class="products-grid">
 
-    <!-- LethalOS -->
     <div class="product-card full reveal">
       <div class="product-tag">Decision Intelligence Engine</div>
       <div class="product-name">LethalOS</div>
-      <div class="product-desc">LethalOS is growth-minded decision intelligence software. Hardware agnostic. It ingests instrument data from the arena and institutional records from existing data infrastructure, returning action intelligence to commanders.
-      <p>LethalOS includes an assessment layer — physical measurement of baseline and ingestion of individual records from the institution of assignment, before a single round is fired. LethalOS includes a prescriptive layer converting deficit signature to developmental intervention for the individual and the leader. LethalOS learns, becoming more accurate with dataset growth. Identifying humans ideally suited for close combat before they are fully developed.</p>
+      <div class="product-desc">LethalOS is decision intelligence. Hardware agnostic. It ingests instrument data from the arena and institutional records from existing data infrastructure, returning action intelligence to commanders.
+      <p>LethalOS includes an assessment layer: physical measurement of baseline and ingestion of individual records from the institution of assignment, before a single round is fired. LethalOS includes a prescriptive layer converting deficit signature to developmental intervention for the individual and the leader. LethalOS learns, becoming more accurate with dataset growth. Identifying humans ideally suited for close combat before they are fully developed.</p>
       <p>Objective measurement. Automaticity development. At scale.</p></div>
       <ul class="product-specs">
         <li><span style="color:var(--dim)">Full AMDPP cycle</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Assess · Measure · Diagnose · Predict · Prescribe</span></li>
         <li><span style="color:var(--dim)">Patented decision architecture</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>8 architecture boxes · U.S. Pat. App. 64/026,797</span></li>
         <li><span style="color:var(--dim)">Data infrastructure</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Integrates with existing service data systems</span></li>
         <li><span style="color:var(--dim)">Four-quadrant diagnostic</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Foundation · Misdirected · Fragile · Combat Ready</span></li>
-        <li><span style="color:var(--dim)">Collective formation intelligence</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Who is carrying whom — before the field tells you</span></li>
+        <li><span style="color:var(--dim)">Collective formation intelligence</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Who is carrying whom, before the field tells you</span></li>
       </ul>
     </div>
 
-    <!-- LUDUS.III -->
     <div class="product-card reveal reveal-delay-1">
       <div class="product-tag">B2G Military Platform</div>
       <div class="product-name">LUDUS.III</div>
       <div class="product-desc">LUDUS.III is the deployable close combat human lethality assessment and development lab. Automated and randomized hostile and no-shoot target array. Zero range reset. Continuous throughput.
-      <p>LUDUS.III delivers 25X the development volume against anatomical incapacitation zone measurement, under synthetic operational load, full Cognition demand, instantly indexed. Unit reports populated in real time. Every iteration produces a tailored, relevant, timely prescriptive intervention.</p>
+      <p>LUDUS.III delivers 25X the development volume against anatomical incapacitation zone measurement, under synthetic operational load, full Recognition demand, instantly indexed. Unit reports populated in real time. Every iteration produces a tailored, relevant, timely prescriptive intervention.</p>
       <p>Certification is a snapshot. Development is a trajectory. LETALUS delivers quantified human lethality.</p></div>
       <ul class="product-specs">
         <li><span style="color:var(--dim)">Command level</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Team through Division</span></li>
@@ -446,11 +484,10 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
       </ul>
     </div>
 
-    <!-- TANGO -->
     <div class="product-card reveal reveal-delay-2">
       <div class="product-tag">Hardware Division</div>
       <div class="product-name">TANGO Targets</div>
-      <div class="product-desc">TANGO is the enabling invention. Every target on every military and commercial range requires manual reset, manual scoring, and a human observer. TANGO eliminates all three.
+      <div class="product-desc">TANGO is the unlock. Every range needs a human to reset the target, score the hit, and watch the shooter. TANGO needs none.
       <p>Autonomous shooter identity resolution. Zero reset time. Real-time data streaming directly into LethalOS. Without TANGO, none of this exists at throughput.</p></div>
       <ul class="product-specs">
         <li><span style="color:var(--dim)">TANGO 03.11N</span><span class="spec-sep">&nbsp;|&nbsp;</span><span>Non-lethal</span></li>
@@ -463,14 +500,14 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   </div>
 </section>
 
-<!-- VIDEO BREAK 3 — The Loop -->
+<!-- VIDEO BREAK 3 -->
 <div class="video-break" style="height:420px;">
   <video id="vid-beltfed" autoplay muted loop playsinline>
     <source src="./hero.mp4" type="video/mp4">
   </video>
   <div class="video-break-overlay" style="background:linear-gradient(to bottom,rgba(10,10,9,0.6) 0%,rgba(10,10,9,0.75) 50%,rgba(10,10,9,0.97) 100%);"></div>
   <div class="video-break-content reveal" style="justify-content:flex-end;padding-bottom:64px;">
-    <div class="video-break-label" style="color:var(--gold);">The Permanent Differentiator</div>
+    <div class="video-break-label" style="color:var(--gold);">The Differentiator</div>
     <div class="video-break-statement" style="font-size:clamp(36px,5vw,72px);max-width:760px;">
       Every prior program stops at measure.<br>
       <span class="dim-line">We close the loop.</span>
@@ -482,31 +519,31 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 <section class="amdpp">
   <div class="section-label reveal">The Cycle</div>
   <div class="section-headline reveal">Assess. Measure. Diagnose.<br>Predict. <span class="red">Prescribe.</span></div>
-  <div class="section-sub reveal">Every prior program produces measurement and stops. LethalOS closes the loop — from institutional record through live measurement through individual diagnosis through trajectory prediction to executable prescription. No prior program completes this cycle.</div>
+  <div class="section-sub reveal">Every prior program produces measurement and stops. LethalOS closes the loop: from institutional record, through live measurement, through individual diagnosis, through trajectory prediction, to executable prescription. No prior program completes this cycle.</div>
   <div class="amdpp-cycle">
     <div class="amdpp-step assess reveal reveal-delay-1">
-      <div class="amdpp-step-number">00 — ASSESS</div>
+      <div class="amdpp-step-number">00 · ASSESS</div>
       <div class="amdpp-step-name">Assess</div>
       <div class="amdpp-step-desc">Before a single round is fired, LethalOS ingests existing records from the institution of assignment. No fighter enters the arena cold.</div>
       <div class="amdpp-assess-badge">INSTITUTIONAL INPUT LAYER</div>
     </div>
     <div class="amdpp-step measure reveal reveal-delay-2">
-      <div class="amdpp-step-number">01 — MEASURE</div>
+      <div class="amdpp-step-number">01 · MEASURE</div>
       <div class="amdpp-step-name">Measure</div>
-      <div class="amdpp-step-desc">Live instrumented session in LUDUS.III. Cognition, Precision, and Speed scored independently and in real time. Where every prior program stops.</div>
+      <div class="amdpp-step-desc">Live instrumented session in LUDUS.III. Recognition, Precision, and Speed scored independently and in real time. Where every prior program stops.</div>
     </div>
     <div class="amdpp-step diagnose reveal reveal-delay-3">
-      <div class="amdpp-step-number">02 — DIAGNOSE</div>
+      <div class="amdpp-step-number">02 · DIAGNOSE</div>
       <div class="amdpp-step-name">Diagnose</div>
       <div class="amdpp-step-desc">Domain deficit signature analysis. Four-quadrant diagnostic placement. The distinction between deficit types determines the intervention.</div>
     </div>
     <div class="amdpp-step predict reveal reveal-delay-4">
-      <div class="amdpp-step-number">03 — PREDICT</div>
+      <div class="amdpp-step-number">03 · PREDICT</div>
       <div class="amdpp-step-name">Predict</div>
       <div class="amdpp-step-desc">Individual development trajectory. Formation resilience projection. How long this fighter holds under sustained contact.</div>
     </div>
     <div class="amdpp-step prescribe reveal reveal-delay-5">
-      <div class="amdpp-step-number">04 — PRESCRIBE</div>
+      <div class="amdpp-step-number">04 · PRESCRIBE</div>
       <div class="amdpp-step-name">Prescribe</div>
       <div class="amdpp-step-desc">Individual development directives derived from domain deficit signatures. The prescription is algorithmically enforced. No data science support required.</div>
     </div>
@@ -520,7 +557,7 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     <div>
       <div class="section-headline reveal" style="font-size:clamp(36px,4vw,56px);">Palantir VANTAGE<br><span class="gold">Integration.</span></div>
       <p class="reveal" style="font-size:16px;color:var(--dim);line-height:1.9;margin-top:24px;">LethalOS integrates directly with existing service data infrastructure. The Assess layer ingests individual records before any live measurement occurs. AMDPP output and raw performance data feed back into the same infrastructure. Human lethality by fighter, by unit, into digital records commanders already own.</p>
-      <p class="reveal" style="font-size:15px;color:var(--dim);margin-top:20px;line-height:1.9;">This is not a parallel system. It is the measurement and intelligence layer that completes the picture.</p>
+      <p class="reveal" style="font-size:15px;color:var(--dim);margin-top:20px;line-height:1.9;">This is not a parallel system. It is the measurement layer the commander never had.</p>
     </div>
     <div class="vantage-diagram reveal">
       <div class="vantage-diagram-label">Data Architecture</div>
@@ -558,22 +595,22 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="section-label reveal">About</div>
   <div class="about-grid">
     <div class="about-bio">
-      <p class="reveal"><strong>Jose A. Garcia</strong> is the Founder and CEO of S-RAS, LLC — a retired Sergeant First Class, U.S. Army Infantry, and combat veteran.</p>
-      <p class="reveal reveal-delay-1">Garcia is a <strong>U.S. Army Distinguished Shooter</strong> and directed a competitive military marksmanship program that produced seven national championship wins and over twenty Distinguished Shooters. The construct of human lethality as a measurable, developable capacity is tacit knowledge — produced from inside the phenomenon by a practitioner who built it, scaled it, and institutionalized it.</p>
-      <p class="reveal reveal-delay-2">Lanchester measured forces. Dupuy measured weapons. The science of quantified warfare never measured the man. <strong>Garcia does.</strong> In defense tech, the Goliaths build the weapons, the networks, and the kill chain. None of them develop the man at the end of it.</p>
-      <div class="about-pull reveal reveal-delay-3">We deliver Cognition, Precision, and Speed in every close combat fighter at scale.</div>
-      <div class="about-pull reveal reveal-delay-4" style="font-size:14px;margin-top:16px;color:var(--dim);border-top:none;padding-top:0;">One man. One self-built, untethered AI. No team.</div>
+      <p class="reveal"><strong>Jose A. Garcia</strong> is the Founder and CEO of S-RAS, LLC. A retired Sergeant First Class, U.S. Army Infantry combat veteran.</p>
+      <p class="reveal reveal-delay-1">Garcia is a <strong>U.S. Army Distinguished Shooter</strong> and directed a competitive military marksmanship program that produced seven national championship wins and over twenty Distinguished Shooters. The construct of human lethality as a measurable, developable capability is tacit knowledge, produced from inside the phenomenon by a practitioner who built it, scaled it, and institutionalized it.</p>
+      <p class="reveal reveal-delay-2">Lanchester measured forces. Dupuy measured weapons. Boyd mapped conflict. The science of quantified warfare never measured the man. <strong>Garcia does.</strong> In defense tech, the Goliaths build the weapons, the networks, and the kill chain. None of them develop the man at the end of it.</p>
+      <div class="about-pull reveal reveal-delay-3">We deliver Recognition, Precision, and Speed in every close combat fighter, at scale.</div>
+      
     </div>
     <div class="reveal reveal-delay-2">
       <div class="entity-block">
         <div class="entity-label">Legal Entity</div>
         <div class="entity-name">S-RAS, LLC</div>
-        <div class="entity-detail">Wyoming LLC operating in California<br>NAICS 541715 · SAM.gov Registered</div>
+        <div class="entity-detail">Wyoming LLC operating in California<br>UEI LA2LYU7XDKU5 · CAGE 1Z2Y2<br>NAICS 541715 · SAM.gov Active</div>
       </div>
       <div class="entity-block">
         <div class="entity-label">Certifications</div>
         <div class="entity-name">SDVOSB</div>
-        <div class="entity-detail">Service-Disabled Veteran-Owned Small Business<br>Certification in progress · SBA certifications.sba.gov</div>
+        <div class="entity-detail">Service-Disabled Veteran-Owned Small Business<br>Certified · SBA certifications.sba.gov</div>
       </div>
       <div class="entity-block">
         <div class="entity-label">Intellectual Property</div>
@@ -583,7 +620,7 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
       <div class="entity-block">
         <div class="entity-label">TRL Status</div>
         <div class="entity-name">TRL 4 &nbsp;·&nbsp; KRL 6</div>
-        <div class="entity-detail">LethalOS: functional MVP · AMDPP cycle architecture complete<br>TANGO 03.11.1 + 03.11.2: design complete · pre-fabrication<br>Two peer-reviewed preprints published · SSRN · March 2026</div>
+        <div class="entity-detail">LethalOS: functional MVP · AMDPP cycle architecture complete<br>TANGO 03.11.1 + 03.11.2: design complete · pre-fabrication<br>Foundational preprint published · SSRN · 2026</div>
       </div>
     </div>
   </div>
@@ -594,13 +631,13 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="contact-inner">
     <div class="section-label reveal">Contact</div>
     <div class="contact-headline reveal">We Own<br><span>The Fight.</span></div>
-    <div class="contact-desc reveal">S-RAS, LLC is pursuing government contract funding through ONR BAA N0001425SB001, USSOCOM BAA HT9425-23-S-SOC1, and the DEVCOM Soldier Center BAA W911QY-25-R-0023. Program officers, prime contractors, and institutional partners working in the close combat lethality space — contact us.</div>
+    <div class="contact-desc reveal">S-RAS, LLC is pursuing government contract funding through ONR BAA N0001425SB001, USSOCOM BAA HT9425-23-S-SOC1, and the DEVCOM Soldier Center BAA W911QY-25-R-0023. Program officers, prime contractors, and institutional partners working in the close combat lethality space: contact us.</div>
     <a href="mailto:jose@letalus.io" class="contact-email reveal">jose@letalus.io</a>
     <div class="contact-meta reveal">
       S-RAS, LLC DBA LETALUS<br>
       Orange County, California · United States<br>
-      SDVOSB certification in progress &nbsp;|&nbsp; U.S. Pat. App. 64/026,797<br>
-      NAICS 541715 · SAM.gov Registered
+      SDVOSB Certified &nbsp;|&nbsp; U.S. Pat. App. 64/026,797<br>
+      UEI LA2LYU7XDKU5 · CAGE 1Z2Y2 · NAICS 541715 · SAM.gov Active
     </div>
   </div>
 </section>
@@ -611,13 +648,17 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 </footer>
 
 <script>
-// Nav scroll state
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, {passive:true});
 
-// Hero entrance — staggered
+// Duplicate chiron content for seamless loop
+window.addEventListener('load', () => {
+  const track = document.getElementById('chiron-track');
+  if (track) track.innerHTML += track.innerHTML;
+});
+
 window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('hero-eyebrow').classList.add('visible'), 400);
   setTimeout(() => document.getElementById('hero-headline').classList.add('visible'), 650);
@@ -626,20 +667,13 @@ window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('hero-cta').classList.add('visible'), 1350);
 });
 
-// Seed each video break to a distinct scene in the footage
-// Scene 1 (0:00): CQB breach — Rangers stacking through smoke
-// Scene 2 (0:15): Belt-fed overhead — brass, violence, the instrument
-// Scene 3 (0:30): Treeline assault — the man alone in the environment
 window.addEventListener('load', () => {
-  // Video break 1: CQB breach — starts at beginning, no seek needed
-  // Video break 2: Treeline / "Behold the Man" — seek to 30s
   const vidTreeline = document.getElementById('vid-treeline');
   if (vidTreeline) {
     const seekTreeline = () => { vidTreeline.currentTime = 30; };
     vidTreeline.addEventListener('loadedmetadata', seekTreeline);
     if (vidTreeline.readyState >= 1) seekTreeline();
   }
-  // Video break 3: Belt-fed overhead — seek to 15s
   const vidBeltfed = document.getElementById('vid-beltfed');
   if (vidBeltfed) {
     const seekBeltfed = () => { vidBeltfed.currentTime = 15; };
@@ -648,7 +682,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -660,7 +693,6 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
 reveals.forEach(el => observer.observe(el));
 
-// Counter animation
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
